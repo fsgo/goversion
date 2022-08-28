@@ -1,3 +1,3 @@
-module github.com/fsgp/goversion
+module github.com/fsgo/goversion
 
 go 1.19
