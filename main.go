@@ -16,11 +16,11 @@ import (
 
 var helpMessage = `
 Self-Update :
-          go install github.com/fsgo/goversion@master
+          go install github.com/fsgo/goversion@latest
 
 Site    : https://github.com/fsgo/goversion
-Version : 0.0.1
-Date    : 2022-08-28
+Version : 0.0.2
+Date    : 2022-08-29
 `
 
 func init() {
@@ -101,6 +101,7 @@ func (ret *result) txt() string {
 	}
 
 	b.WriteString("\n")
+	b.WriteString(fmt.Sprintf("\tpath  %s\n", ret.BuildInfo.Path))
 	b.WriteString(fmt.Sprintf("\tmodule  %s %s\n", ret.BuildInfo.Main.Path, ret.BuildInfo.Main.Version))
 	for i := 0; i < len(ret.BuildInfo.Deps); i++ {
 		dep := ret.BuildInfo.Deps[i]
@@ -143,6 +144,7 @@ func (ret *result) json(pretty bool) string {
 	if !*module {
 		return jsonEncode(data, pretty)
 	}
+	data["Path"] = ret.BuildInfo.Path
 	data["Main"] = ret.BuildInfo.Main.Path
 	data["MainVersion"] = ret.BuildInfo.Main.Version
 

@@ -38,6 +38,7 @@ go_fmt : go1.19
 ```bash
 # goversion -m go_fmt
 go_fmt : go1.19
+	path  github.com/fsgo/go_fm
 	module  github.com/fsgo/go_fmt (devel)
 	dep github.com/google/go-cmp v0.5.8
 	dep golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4
@@ -80,6 +81,7 @@ go_fmt : go1.19
    "Main": "github.com/fsgo/go_fmt",
    "MainVersion": "(devel)",
    "Name": "go_fmt",
+   "Path": "github.com/fsgo/go_fmt",
    "Settings": {
      "-compiler": "gc",
      "CGO_CFLAGS": "",
